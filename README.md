@@ -17,7 +17,15 @@ It traverse the document (HTML response, there is not a JSON api available), hen
 ```JS
 const linguee = require("linguee-client");
 
-linguee.translate("answer", "EN", "ES")
+const proxy = {
+  host: 'some_ip',
+  port: some_port_number,
+  auth: {
+    username: 'some_login',
+    password: 'some_pass'
+  }
+}
+linguee.translate("answer", "EN", "ES", proxy)
   .then(result => {
       console.log(result);
   })
